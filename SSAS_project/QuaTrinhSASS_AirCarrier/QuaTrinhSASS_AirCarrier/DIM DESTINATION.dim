@@ -1,0 +1,349 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="092dbbcb-2e04-42c3-9cfc-2b122a5e9442" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIM DESTINATION</ID>
+  <Name>DIM DESTINATION</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="8" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2244" scrolltop="-4430" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="11769" y="15875" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DIM_DESTINATION" left="263" top="0" logicalid="4" controlid="1" masterid="0" hint1="0" hint2="0" width="4551" height="2307" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000c711000003090000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DIM_DESTINATION" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DESTINATION_CITY_MARKET" left="20" top="4707" logicalid="5" controlid="2" masterid="0" hint1="0" hint2="0" width="5038" height="2307" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000ae13000003090000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DESTINATION_CITY_MARKET" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="2140" top="2007" logicalid="6" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="1973790" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK_DIM_DEST_CITYMARKET]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="1" sourceattachpoint="8" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="2539" y="4707" />
+              <point x="2539" y="3507" />
+              <point x="2538" y="3507" />
+              <point x="2538" y="2307" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2244</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-4430</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="217">
+            <Shape Id="DEST AIRPORT SEQ ID" Expanded="false">
+              <Attributes>
+                <Attribute Id="DEST AIRPORT SEQ ID" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="DEST AIRPORT NAME" Expanded="false">
+              <Attributes>
+                <Attribute Id="DEST AIRPORT NAME" />
+              </Attributes>
+              <Position x="296" y="20" />
+            </Shape>
+            <Shape Id="DEST CITY MARKET NAME" Expanded="false">
+              <Attributes>
+                <Attribute Id="DEST CITY MARKET NAME" />
+              </Attributes>
+              <Position x="572" y="20" />
+            </Shape>
+            <Shape Id="DEST CITY NAME" Expanded="false">
+              <Attributes>
+                <Attribute Id="DEST CITY NAME" />
+              </Attributes>
+              <Position x="572" y="69" />
+            </Shape>
+            <Shape Id="DEST STATE NAME" Expanded="false">
+              <Attributes>
+                <Attribute Id="DEST STATE NAME" />
+              </Attributes>
+              <Position x="848" y="69" />
+            </Shape>
+            <Shape Id="DEST COUNTRY NAME" Expanded="false">
+              <Attributes>
+                <Attribute Id="DEST COUNTRY NAME" />
+              </Attributes>
+              <Position x="1125" y="69" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d669bc56-82f4-442b-9fa1-6c4a4c7ef639">
+    <DataSourceViewID>Air Carrier DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="f682d238-54f5-459a-89c6-17012ebe03df">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="1821d711-f9b4-4e37-9f46-03c7f6b049f0">
+      <ID>DEST AIRPORT SEQ ID</ID>
+      <Name>DEST AIRPORT SEQ ID</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="630c82f2-a367-4007-85f6-f9ef9fe16785">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2af78a74-ffca-487f-9b54-4229c576df99">
+            <TableID>dbo_DIM_DESTINATION</TableID>
+            <ColumnID>DEST_AIRPORT_SEQ_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="7fbd6513-8d47-4991-a72b-fb71b8d49d0f">
+          <AttributeID>DEST AIRPORT NAME</AttributeID>
+          <Name>DEST AIRPORT NAME</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="467a4f8c-96cf-4a5e-9962-4f826fc86b05">
+      <ID>DEST AIRPORT NAME</ID>
+      <Name>DEST AIRPORT NAME</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="69faa2c6-f031-434b-9e3b-52b3d9354574">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="af8989b9-c709-41a8-9a0d-8917c82d260a">
+            <TableID>dbo_DIM_DESTINATION</TableID>
+            <ColumnID>DEST_AIRPORT_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="b1cce329-ff1e-45f0-908c-1b963fc2ec06">
+          <AttributeID>DEST CITY NAME</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>DEST CITY NAME</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cb66379c-adb9-47e8-b808-fa983b78a762">
+          <AttributeID>DEST CITY MARKET NAME</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>DEST CITY MARKET NAME</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e3a0699b-5387-4cb1-87aa-bd23c3a67a78">
+      <ID>DEST CITY NAME</ID>
+      <Name>DEST CITY NAME</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f093d02a-0abf-470b-8136-913fc62eaeb8">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="84afe77b-8670-4e51-99f3-9fa54605226b">
+            <TableID>dbo_DIM_DESTINATION</TableID>
+            <ColumnID>DEST_CITY_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="6249106e-b116-4134-94a0-0ccc8439f9ef">
+          <AttributeID>DEST STATE NAME</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>DEST STATE NAME</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="66acbc58-5b81-4406-b77a-637ef059dc03">
+      <ID>DEST CITY MARKET NAME</ID>
+      <Name>DEST CITY MARKET NAME</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="23212551-81bc-4d7e-8ed1-090bcaf28ecf">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ce181785-5db9-4fc7-9556-33442f342005">
+            <TableID>dbo_DESTINATION_CITY_MARKET</TableID>
+            <ColumnID>DEST_CITY_MARKET_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7e3ef0ae-9854-4933-97dc-0dde80b7f2c1">
+      <ID>DEST STATE NAME</ID>
+      <Name>DEST STATE NAME</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1f936405-b758-483d-b254-c2c9dd74a2ac">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="18ab514c-2cfd-4108-a27e-9888cbc7269c">
+            <TableID>dbo_DESTINATION_CITY_MARKET</TableID>
+            <ColumnID>DEST_STATE_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="27e3de5b-3241-4223-b920-1245f639cd2b">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="806da061-2bc2-4c30-96c8-359d72638eea">
+            <TableID>dbo_DESTINATION_CITY_MARKET</TableID>
+            <ColumnID>DEST_COUNTRY_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="fc95cf68-84aa-4540-ae93-0e550cd845c2">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="dce6a097-3332-47cb-858c-9399145478d6">
+          <TableID>dbo_DESTINATION_CITY_MARKET</TableID>
+          <ColumnID>DEST_STATE_NAME</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="9a3e4219-e24d-4498-beef-3075782e7176">
+          <AttributeID>DEST COUNTRY NAME</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>DEST COUNTRY NAME</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="62b01404-6427-4c54-a6be-2f0c70e7b5d0">
+      <ID>DEST COUNTRY NAME</ID>
+      <Name>DEST COUNTRY NAME</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2566bdcb-2cf8-49f6-932c-4dcfbcc505e1">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d236c90d-ead5-4f6f-a85d-7fa2d14f1aa0">
+            <TableID>dbo_DESTINATION_CITY_MARKET</TableID>
+            <ColumnID>DEST_COUNTRY_NAME</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="323bcbca-0a10-419d-8576-3636b69cb56e">
+      <ID>Hierarchy</ID>
+      <Name>DestGeography</Name>
+      <Levels>
+        <Level dwd:design-time-name="afc99d33-7cb1-4aaf-87bf-eaf1d2095636">
+          <ID>DEST COUNTRY NAME</ID>
+          <Name>DEST COUNTRY NAME</Name>
+          <SourceAttributeID>DEST COUNTRY NAME</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="750ff0fd-9d4e-479f-bc28-002e16bca007">
+          <ID>DEST STATE NAME</ID>
+          <Name>DEST STATE NAME</Name>
+          <SourceAttributeID>DEST STATE NAME</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="1c5a5e63-b5d3-42a7-806b-edd4e5c15697">
+          <ID>DEST CITY NAME</ID>
+          <Name>DEST CITY NAME</Name>
+          <SourceAttributeID>DEST CITY NAME</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="9323c67d-cd0c-40ba-bc7a-a169f9f01823">
+          <ID>DEST AIRPORT NAME</ID>
+          <Name>DEST AIRPORT NAME</Name>
+          <SourceAttributeID>DEST AIRPORT NAME</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="7a173dbf-4c4b-4826-838d-eb327d09fec6">
+      <ID>Hierarchy 1</ID>
+      <Name>DestCityMarket</Name>
+      <Levels>
+        <Level dwd:design-time-name="45f72c67-ef00-4c60-a074-5f5d03860019">
+          <ID>DEST CITY MARKET NAME</ID>
+          <Name>DEST CITY MARKET NAME</Name>
+          <SourceAttributeID>DEST CITY MARKET NAME</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="8c6312dc-f48c-4b45-a614-ec1178d74734">
+          <ID>DEST AIRPORT NAME</ID>
+          <Name>DEST AIRPORT NAME</Name>
+          <SourceAttributeID>DEST AIRPORT NAME</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

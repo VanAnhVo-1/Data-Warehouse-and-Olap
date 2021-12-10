@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet2">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText> SELECT NON EMPTY { [Measures].[AvailableSeats] } ON COLUMNS, NON EMPTY { ([DIM AIRCRAFT].[AIRCRAFT TYPE NAME].[AIRCRAFT TYPE NAME].ALLMEMBERS * [DIM TIME PERIOD].[Date].[MONTH].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [DIM CLASS SERVICES].[CLASS SERVICES NAME].&amp;[Scheduled Passenger/ Cargo Service F] } ) ON COLUMNS FROM ( SELECT ( { [DIM CARRIER].[UNIQUE CARRIER NAME].&amp;[American Airlines Inc.] } ) ON COLUMNS FROM ( SELECT ( { [DIM TIME PERIOD].[YEAR].&amp;[2019] } ) ON COLUMNS FROM [Air Carrier DW]))) WHERE ( [DIM TIME PERIOD].[YEAR].&amp;[2019], [DIM CARRIER].[UNIQUE CARRIER NAME].&amp;[American Airlines Inc.], [DIM CLASS SERVICES].[CLASS SERVICES NAME].&amp;[Scheduled Passenger/ Cargo Service F] ) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>MDX</CommandType>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DIM AIRCRAFT</DimensionName>
+                    <HierarchyName>AIRCRAFT TYPE NAME</HierarchyName>
+                    <HierarchyUniqueName>[DIM AIRCRAFT].[AIRCRAFT TYPE NAME]</HierarchyUniqueName>
+                    <LevelName>AIRCRAFT TYPE NAME</LevelName>
+                    <UniqueName>[DIM AIRCRAFT].[AIRCRAFT TYPE NAME].[AIRCRAFT TYPE NAME]</UniqueName>
+                  </ID>
+                  <ItemCaption>AIRCRAFT TYPE NAME</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DIM TIME PERIOD</DimensionName>
+                    <HierarchyName>Date</HierarchyName>
+                    <HierarchyUniqueName>[DIM TIME PERIOD].[Date]</HierarchyUniqueName>
+                    <LevelName>QUARTER</LevelName>
+                    <UniqueName>[DIM TIME PERIOD].[Date].[QUARTER]</UniqueName>
+                  </ID>
+                  <ItemCaption>QUARTER</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>DIM TIME PERIOD</DimensionName>
+                    <HierarchyName>Date</HierarchyName>
+                    <HierarchyUniqueName>[DIM TIME PERIOD].[Date]</HierarchyUniqueName>
+                    <LevelName>MONTH</LevelName>
+                    <UniqueName>[DIM TIME PERIOD].[Date].[MONTH]</UniqueName>
+                  </ID>
+                  <ItemCaption>MONTH</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>AvailableSeats</MeasureName>
+                    <UniqueName>[Measures].[AvailableSeats]</UniqueName>
+                  </ID>
+                  <ItemCaption>AvailableSeats</ItemCaption>
+                  <BackColor>true</BackColor>
+                  <ForeColor>true</ForeColor>
+                  <FontFamily>true</FontFamily>
+                  <FontSize>true</FontSize>
+                  <FontWeight>true</FontWeight>
+                  <FontStyle>true</FontStyle>
+                  <FontDecoration>true</FontDecoration>
+                  <FormattedValue>true</FormattedValue>
+                  <FormatString>true</FormatString>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>Air Carrier DW</From>
+            <Filter>
+              <FilterItems>
+                <FilterItem>
+                  <HierarchyUniqueName>[DIM TIME PERIOD].[YEAR]</HierarchyUniqueName>
+                  <Condition xsi:type="EqualTo">
+                    <Members>
+                      <Member>
+                        <MemberUniqueName>[DIM TIME PERIOD].[YEAR].&amp;[2019]</MemberUniqueName>
+                      </Member>
+                    </Members>
+                  </Condition>
+                </FilterItem>
+                <FilterItem>
+                  <HierarchyUniqueName>[DIM CARRIER].[UNIQUE CARRIER NAME]</HierarchyUniqueName>
+                  <Condition xsi:type="EqualTo">
+                    <Members>
+                      <Member>
+                        <MemberUniqueName>[DIM CARRIER].[UNIQUE CARRIER NAME].&amp;[American Airlines Inc.]</MemberUniqueName>
+                      </Member>
+                    </Members>
+                  </Condition>
+                </FilterItem>
+                <FilterItem>
+                  <HierarchyUniqueName>[DIM CLASS SERVICES].[CLASS SERVICES NAME]</HierarchyUniqueName>
+                  <Condition xsi:type="EqualTo">
+                    <Members>
+                      <Member>
+                        <MemberUniqueName>[DIM CLASS SERVICES].[CLASS SERVICES NAME].&amp;[Scheduled Passenger/ Cargo Service F]</MemberUniqueName>
+                      </Member>
+                    </Members>
+                  </Condition>
+                </FilterItem>
+              </FilterItems>
+            </Filter>
+            <Calculations />
+            <Aggregates />
+            <QueryProperties>
+              <IncludeMemberValue>true</IncludeMemberValue>
+            </QueryProperties>
+          </QuerySpecification>
+          <Query>
+            <Statement> SELECT NON EMPTY { [Measures].[AvailableSeats] } ON COLUMNS, NON EMPTY { ([DIM AIRCRAFT].[AIRCRAFT TYPE NAME].[AIRCRAFT TYPE NAME].ALLMEMBERS * [DIM TIME PERIOD].[Date].[MONTH].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [DIM CLASS SERVICES].[CLASS SERVICES NAME].&amp;[Scheduled Passenger/ Cargo Service F] } ) ON COLUMNS FROM ( SELECT ( { [DIM CARRIER].[UNIQUE CARRIER NAME].&amp;[American Airlines Inc.] } ) ON COLUMNS FROM ( SELECT ( { [DIM TIME PERIOD].[YEAR].&amp;[2019] } ) ON COLUMNS FROM [Air Carrier DW]))) WHERE ( [DIM TIME PERIOD].[YEAR].&amp;[2019], [DIM CARRIER].[UNIQUE CARRIER NAME].&amp;[American Airlines Inc.], [DIM CLASS SERVICES].[CLASS SERVICES NAME].&amp;[Scheduled Passenger/ Cargo Service F] ) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="AIRCRAFT_TYPE_NAME">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[DIM AIRCRAFT].[AIRCRAFT TYPE NAME].[AIRCRAFT TYPE NAME]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="QUARTER">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[DIM TIME PERIOD].[Date].[QUARTER]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MONTH">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[DIM TIME PERIOD].[Date].[MONTH]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AvailableSeats">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[AvailableSeats]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

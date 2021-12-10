@@ -1,0 +1,103 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>QuaTrinhSASS_AirCarrier</Database>
+    <Server>DESKTOP-J2PLBJG\SQL2019</Server>
+    <ConnectionString>Data Source=DESKTOP-J2PLBJG\SQL2019;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>SFrCc9JLU1W3G7sYOSGbaFsom9g=5/16/2021 9:46:30 AM5/15/2021 10:08:58 PM</TimeStamp>
+        <ID>
+          <String>Air Carrier DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>osbPr6kCrdOJBgUPZWgxgmPACng=5/20/2021 11:03:38 PM5/15/2021 10:19:20 PM</TimeStamp>
+        <ID>
+          <String>Air Carrier DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+URi8Nsc8+gtxakG8AJR+Gg0Hso=5/16/2021 3:51:38 PM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>DIM DISTANCE GROUP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ntTyXiAHYmnNW+M9qnkdVsWRxnQ=5/19/2021 8:15:49 PM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>DIM CARRIER</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>LWAI/Dk3TTp9cgdlVgJpEL3n4Sg=5/21/2021 9:51:11 PM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>DIM CLASS SERVICES</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>k09Xr2xdMtp4Orq+oc2zwOFFbVM=5/20/2021 9:17:00 PM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>DIM DESTINATION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>70LFLpwSgJNrBVJh+dJifOp7lTY=5/30/2021 8:56:38 AM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>DIM TIME PERIOD</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4WENVEDaLSGoio255vTXch+jufc=5/21/2021 9:25:49 PM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>DIM AIRCRAFT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>6xjh093c0wT9OgN/Zrf3Uvq+M5g=5/21/2021 9:45:42 PM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>DIM ORIGIN</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>/4hoaZqzDEBhMoxhFE4tRNtXCLQ=6/27/2021 4:12:15 PM5/16/2021 10:02:42 AMrHW5q3T4q+WVehN4iSaIN23nsk0=6/27/2021 4:12:14 PM5/16/2021 10:02:42 AM</TimeStamp>
+        <ID>
+          <String>Air Carrier DW</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>XXOzipFhKPfN1J2ov/R5iJbaRBg=5/15/2021 9:53:55 PM5/15/2021 9:53:54 PM</TimeStamp>
+      <ID>
+        <String>QuaTrinhSASS_AirCarrier</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2021-06-27T09:12:22.273333Z</LastDeployed>
+</DeploymentSnapshot>

@@ -1,0 +1,206 @@
+﻿-- Câu 1: Thống kê tổng chuyến bay mà hãng Atlas Air Inc. đã thực hiện có điểm khởi hành là ở Việt Nam 
+--        theo từng tháng, quý, năm?
+select [Measures].[DEPARTURES PERFORMED] on columns,
+non empty [DIM ORIGIN].[ORIGIN COUNTRY NAME].&[Vietnam]*[DIM TIME PERIOD].[Date].members on rows
+from [Air Carrier DW]
+where [DIM CARRIER].[UNIQUE CARRIER NAME].&[Atlas Air Inc.];
+
+-- Câu 2: Tìm sân bay được các hãng vận chuyển Delta Airline Inc. đến nhiều nhất?
+select [Measures].[DEPARTURES PERFORMED] on columns,
+non empty GENERATE (DESCENDANTS([DIM TIME PERIOD].[YEAR].&[2018]),
+					TOPCOUNT([DIM TIME PERIOD].[YEAR].CURRENTMEMBER*[DIM DESTINATION].[DEST AIRPORT NAME].[DEST AIRPORT NAME].MEMBERS,
+					1,[Measures].[DEPARTURES PERFORMED]))*[DIM DESTINATION].[DEST COUNTRY NAME].[DEST COUNTRY NAME].members 
+					on rows
+from [Air Carrier DW]
+where [DIM CARRIER].[UNIQUE CARRIER NAME].&[Delta Air Lines Inc.];
+
+-- Câu 3: Top 3 hãng vận chuyển có nhiều chuyến bay bị hủy nhất
+with member [Measures].[Cancel] as
+[Measures].[DEPARTURES PERFORMED]-[Measures].[DEPARTURES SCHEDULED]
+
+select [Measures].[Cancel] on columns,
+non empty TOPCOUNT (([DIM CARRIER].[UNIQUE CARRIER NAME].[UNIQUE CARRIER NAME].members,
+					[DIM CARRIER].[AIRLINE ID].[AIRLINE ID].members),3,[Measures].[Cancel]) on rows
+
+from [Air Carrier DW];
+
+-- Câu 4: So sánh tổng hành khách, hàng hóa và thư từ được vận chuyển đến thành phố New York theo từng quý của từng năm?
+
+with 
+member [Passenger Prev] as
+(ParallelPeriod([DIM TIME PERIOD].[Y_Q].[QUARTER],4,[DIM TIME PERIOD].[Y_Q].currentmember),[Measures].[PASSENGERS]), 
+																						Format_String = "Standard"
+
+member [Passenger Diff] as
+[Measures].[PASSENGERS]-[Passenger Prev]
+
+select {[Measures].[PASSENGERS],
+		[Passenger Prev],	
+		[Passenger Diff]} on columns,
+
+[DIM TIME PERIOD].[Y_Q].members on rows
+
+from [Air Carrier DW];
+
+-- Câu 5: Liệt kê 5 nước là điểm đến có tổng số lượng hàng hóa và thư từ giảm dần (Bắt đầu từ vị trí thứ 6) theo từng năm?
+
+select [Measures].[Sum_Freight_Mail] on columns,
+GENERATE ([DIM TIME PERIOD].[YEAR].[YEAR].MEMBERS,SUBSET([DIM TIME PERIOD].[YEAR].CURRENTMEMBER*
+														ORDER([DIM DESTINATION].[DEST COUNTRY NAME].[DEST COUNTRY NAME].MEMBERS
+														,[Measures].[Sum_Freight_Mail],DESC),6,5)) ON ROWS
+from [Air Carrier DW];
+
+-- Câu 6: Truy vấn hãng vận chuyển đã bay ít nhất được 15 nhóm khoảng cách và sở hữu nhiều loại máy bay bay nhanh nhất ứng với từng nhóm khoảng cách? 
+with 
+member [Measures].[Count_Airline]  as
+[Measures].[DISTANCE GROUP Distinct Count]
+
+member [Measures].[rank] as
+RANK ([DIM CARRIER].[UNIQUE CARRIER NAME].currentmember,[DIM CARRIER].[UNIQUE CARRIER NAME].[UNIQUE CARRIER NAME].members,[Measures].[Count_Airline])
+
+
+select   {[Measures].[Count_Airline],[Measures].[rank]}   on columns,
+filter (order ([DIM CARRIER].[UNIQUE CARRIER NAME].children,[Measures].[Count_Airline],DESC),[Measures].[rank]=1) on rows
+from (select Nonempty (generate ([DIM DISTANCE GROUP].[DISTANCE GROUP NAME].children, 
+			bottomcount (nonempty ({[DIM DISTANCE GROUP].[DISTANCE GROUP NAME].currentmember*[DIM AIRCRAFT].[AIRCRAFT TYPE NAME].children},[Measures].[AvergeTime]),
+						1,[Measures].[AvergeTime]))*filter (order ([DIM CARRIER].[UNIQUE CARRIER NAME].children,[Measures].[DISTANCE GROUP Distinct Count], ASC),
+				[Measures].[DISTANCE GROUP Distinct Count]>=15)) on columns
+	 from [Air Carrier DW]);
+
+-- Câu 7: Với mỗi quý trong năm 2019, liệt kê 3 nước có tổng số lượng hành khách cao nhất
+select [Measures].[PASSENGERS] on columns,
+generate (descendants([DIM TIME PERIOD].[Y_Q].[YEAR].&[2019],[DIM TIME PERIOD].[QUARTER]), 
+		TOPCOUNT([DIM TIME PERIOD].[QUARTER].currentmember*[DIM CARRIER].[UNIQUE CARRIER NAME].[UNIQUE CARRIER NAME].members,3,[Measures].[PASSENGERS])) on rows
+from [Air Carrier DW];
+
+
+-- Câu 8: Liệt kê Top 3 bang của Mỹ có số thị trường thành phố nhiều nhất?
+WITH MEMBER MEASURES.[COUNT CITY MARKET] AS
+	COUNT(
+		NONEMPTY({[DIM ORIGIN].[STATE NAME].CURRENTMEMBER *  
+			[DIM ORIGIN].[ORIGIN CITY MARKET NAME].CHILDREN}
+			, [Measures].[FACT CARRIER Count]
+		)
+	)
+SELECT MEASURES.[COUNT CITY MARKET] ON COLUMNS,
+	TOPCOUNT(
+		GENERATE([DIM ORIGIN].[ORIGIN COUNTRY NAME].&[United States], 
+			DESCENDANTS([DIM ORIGIN].[OriginGeography].CURRENTMEMBER, 
+					[DIM ORIGIN].[OriginGeography].[STATE NAME]
+			)
+		),3,MEASURES.[COUNT CITY MARKET]
+	)
+	ON ROWS
+FROM [Air Carrier DW];
+
+-- Câu 9: Tìm các hãng vận chuyển có thời gian vận chuyển trung bình
+-- nhanh nhất theo từng nhóm khoảng cách?
+SELECT [Measures].[AvarageAirTime] ON COLUMNS,
+	GENERATE ([DIM DISTANCE GROUP].[DISTANCE GROUP NAME].[DISTANCE GROUP NAME].MEMBERS,
+		BOTTOMCOUNT(
+			NONEMPTY ({[DIM DISTANCE GROUP].[DISTANCE GROUP NAME].CURRENTMEMBER * [DIM CARRIER].[UNIQUE CARRIER NAME].CHILDREN},
+				[Measures].[AvarageAirTime]
+			)
+					,1, [Measures].[AvarageAirTime]
+		)
+	)
+ ON ROWS
+FROM [Air Carrier DW];
+
+-- Câu 10: Thống kê tổng số chuyến bay và tổng số ghế trong theo từng loại máy bay của hãng American Airline Inc. theo các quý trong năm 2019?
+SELECT {[Measures].[DEPARTURES PERFORMED], [Measures].[AvailableSeats]} ON COLUMNS
+	, NONEMPTY({[DIM AIRCRAFT].[AIRCRAFT TYPE NAME].CHILDREN * 
+			NONEMPTY (  
+				DRILLDOWNLEVEL(  
+					{[DIM TIME PERIOD].[Date].[YEAR].&[2019],  
+						DESCENDANTS([DIM TIME PERIOD].[Date].[YEAR].&[2019],
+									[DIM TIME PERIOD].[Date].[QUARTER]
+						)
+					} ,,1
+				)
+			)
+		} 
+	)ON ROWS
+	FROM [Air Carrier DW]
+	WHERE [DIM CARRIER].[UNIQUE CARRIER NAME].&[American Airlines Inc.];
+
+-- Câu 11: Ứng với từng cấu hình máy bay, hãy tìm loại máy bay được sử dụng phổ biến nhất?
+WITH MEMBER MEASURES.[AIRCARRIER COUNT] AS
+COUNT(NONEMPTY({[DIM AIRCRAFT].[AIRCRAFT TYPE NAME].CURRENTMEMBER * 
+	[DIM CARRIER].[UNIQUE CARRIER NAME].CHILDREN},[Measures].[FACT CARRIER Count]))
+SELECT MEASURES. [AIRCARRIER COUNT] ON 0,	
+	GENERATE([DIM AIRCRAFT].[AIRCRAFT CONFIG NAME].CHILDREN,
+		TOPCOUNT(
+			NONEMPTY([DIM AIRCRAFT].[AIRCRAFT TYPE NAME].CHILDREN *[DIM AIRCRAFT].[AIRCRAFT CONFIG NAME].CURRENTMEMBER)
+			,1,MEASURES. [AIRCARRIER COUNT]
+		)
+	)ON 1
+FROM [Air Carrier DW];
+
+-- Câu 12: Liệt kê các tháng theo từng năm có số lượng hành khách đông nhất theo 2 dạng là Scheduled và Non-Scheduled?
+SELECT [Measures].[PASSENGERS] ON COLUMNS,
+	GENERATE ([DIM CLASS SERVICES].[CLASS SERVICE GROUP].CHILDREN,
+		GENERATE([DIM TIME PERIOD].[YEAR].CHILDREN,
+			TOPCOUNT(
+				NONEMPTY(
+					DESCENDANTS([DIM TIME PERIOD].[Date].CURRENTMEMBER,
+						[DIM TIME PERIOD].[Date].[MONTH]
+					) * [DIM CLASS SERVICES].[CLASS SERVICE GROUP].CURRENTMEMBER
+				)
+				,1,[Measures].[PASSENGERS]
+			)
+		)
+	)ON ROWS
+FROM [Air Carrier DW];
+
+-- Câu 13: Thống kê thời gian thực hiện vận chuyển trung bình nhanh nhất của từng loại máy bay theo từng nhóm khoảng cách?
+SELECT [Measures].[AvarageAirTime] ON COLUMNS,
+	GENERATE ([DIM DISTANCE GROUP].[DISTANCE GROUP NAME].[DISTANCE GROUP NAME].MEMBERS,
+		BOTTOMCOUNT(
+			NONEMPTY ({[DIM DISTANCE GROUP].[DISTANCE GROUP NAME].CURRENTMEMBER * [DIM AIRCRAFT].[AIRCRAFT TYPE NAME].CHILDREN},
+				[Measures].[AvarageAirTime]
+			)
+					,1, [Measures].[AvarageAirTime]
+		)
+	)
+ ON ROWS
+FROM [Air Carrier DW];
+
+-- Câu 14: Liệt kê các nhà cung cấp dịch vụ vận chuyển có tỉ lệ ghế trống trong tháng so với quý
+-- là thấp nhất theo từng năm và với loại dịch vụ là Scheduled Passenger/ Cargo Service F (F)
+WITH MEMBER MEASURES.[PECENTAGE OF AVAILABLE SEATS] AS
+DIVIDE(
+	([DIM TIME PERIOD].[Date].CURRENTMEMBER,
+		[Measures].[AvailableSeats]),(
+			ANCESTOR([DIM TIME PERIOD].[Date].CURRENTMEMBER,
+				[DIM TIME PERIOD].[Date].[QUARTER]
+			),[Measures].[AvailableSeats]
+		)
+	), FORMAT_STRING='Percent'
+SELECT MEASURES.[PECENTAGE OF AVAILABLE SEATS] ON 0,
+	GENERATE([DIM TIME PERIOD].[YEAR].CHILDREN,
+		BOTTOMCOUNT(
+			NONEMPTY(
+				CROSSJOIN([DIM CARRIER].[UNIQUE CARRIER NAME].CHILDREN,
+					DESCENDANTS([DIM TIME PERIOD].[Date].CURRENTMEMBER,[DIM TIME PERIOD].[Date].[MONTH])
+				)
+			), 1, MEASURES.[PECENTAGE OF AVAILABLE SEATS]
+		)
+	)ON 1
+FROM [Air Carrier DW]
+WHERE ([DIM CLASS SERVICES].[CLASS SERVICES NAME].&[Scheduled Passenger/ Cargo Service F]);
+
+-- Câu 15: Hãng vận chuyển có sự chênh lệch giữa số chuyến bay đã thực hiện và số chuyến bay đã lên lịch lớn hơn
+-- 10 theo từng tháng trong năm 2019 và với loại dịch vụ Scheduled (F và G)?
+SELECT {[Measures].[DEPARTURES PERFORMED], [Measures].[DEPARTURES SCHEDULED]} ON COLUMNS,
+	GENERATE(
+		DESCENDANTS([DIM TIME PERIOD].[Date].[YEAR].&[2019], [DIM TIME PERIOD].[Date].[MONTH]),
+			TOPCOUNT(
+				FILTER({[DIM CARRIER].[UNIQUE CARRIER NAME].CHILDREN * [DIM TIME PERIOD].[Date].CURRENTMEMBER},
+					[Measures].[DEPARTURES PERFORMED] - [Measures].[DEPARTURES SCHEDULED] > 10
+				),1
+			)
+	)ON ROWS
+FROM [Air Carrier DW]
+WHERE {[DIM CLASS SERVICES].[CLASS SERVICES NAME].&[Scheduled All Cargo Service G], 
+	[DIM CLASS SERVICES].[CLASS SERVICES NAME].&[Scheduled Passenger/ Cargo Service F]}

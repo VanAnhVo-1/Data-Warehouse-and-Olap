@@ -1,0 +1,102 @@
+﻿<Infos>
+  <Item name="Health Insurance.dmm">
+    <Time>637586529732662667</Time>
+    <Hash length="20">
+      <b>102</b>
+      <b>164</b>
+      <b>142</b>
+      <b>128</b>
+      <b>131</b>
+      <b>181</b>
+      <b>13</b>
+      <b>208</b>
+      <b>102</b>
+      <b>183</b>
+      <b>193</b>
+      <b>185</b>
+      <b>15</b>
+      <b>2</b>
+      <b>252</b>
+      <b>21</b>
+      <b>5</b>
+      <b>186</b>
+      <b>129</b>
+      <b>145</b>
+    </Hash>
+  </Item>
+  <Item name="QuaTrinhMining_HealthInsurance.database">
+    <Time>637586526769187139</Time>
+    <Hash length="20">
+      <b>203</b>
+      <b>151</b>
+      <b>159</b>
+      <b>221</b>
+      <b>82</b>
+      <b>8</b>
+      <b>74</b>
+      <b>184</b>
+      <b>130</b>
+      <b>237</b>
+      <b>137</b>
+      <b>22</b>
+      <b>102</b>
+      <b>100</b>
+      <b>63</b>
+      <b>99</b>
+      <b>165</b>
+      <b>159</b>
+      <b>149</b>
+      <b>37</b>
+    </Hash>
+  </Item>
+  <Item name="Health Insurance.dsv">
+    <Time>637586527253164838</Time>
+    <Hash length="20">
+      <b>129</b>
+      <b>24</b>
+      <b>35</b>
+      <b>2</b>
+      <b>174</b>
+      <b>203</b>
+      <b>201</b>
+      <b>207</b>
+      <b>250</b>
+      <b>174</b>
+      <b>5</b>
+      <b>113</b>
+      <b>230</b>
+      <b>159</b>
+      <b>86</b>
+      <b>111</b>
+      <b>251</b>
+      <b>184</b>
+      <b>52</b>
+      <b>173</b>
+    </Hash>
+  </Item>
+  <Item name="Health Insurance.ds">
+    <Time>637586527012775117</Time>
+    <Hash length="20">
+      <b>88</b>
+      <b>18</b>
+      <b>64</b>
+      <b>206</b>
+      <b>6</b>
+      <b>232</b>
+      <b>253</b>
+      <b>48</b>
+      <b>55</b>
+      <b>17</b>
+      <b>85</b>
+      <b>55</b>
+      <b>81</b>
+      <b>106</b>
+      <b>10</b>
+      <b>76</b>
+      <b>244</b>
+      <b>186</b>
+      <b>195</b>
+      <b>59</b>
+    </Hash>
+  </Item>
+</Infos>

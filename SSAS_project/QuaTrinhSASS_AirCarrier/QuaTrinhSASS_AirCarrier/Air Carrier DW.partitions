@@ -1,0 +1,85 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="267ce940-aaf8-42c8-be60-ac67a6d5b216" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Air Carrier DW</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>FACT CARRIER</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="2bda9fed-5348-40c0-ad4d-47c77c2400d3">
+          <ID>FACT CARRIER</ID>
+          <Name>FACT CARRIER</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="58b011a2-e901-4fb5-9fa0-58f1639fd045">
+            <DataSourceViewID>Air Carrier DW</DataSourceViewID>
+            <TableID>dbo_FACT_CARRIER</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>FACT CARRIER 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="db97da20-5285-4a65-9ceb-ec277a20308d">
+          <ID>FACT CARRIER</ID>
+          <Name>FACT CARRIER</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="934d7c7e-d6ac-495d-aa2c-99aab920a077">
+            <DataSourceViewID>Air Carrier DW</DataSourceViewID>
+            <TableID>dbo_FACT_CARRIER</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>DIM AIRCRAFT</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="61f44fad-9881-4abe-89fc-84dccaa77fee">
+          <ID>DIM AIRCRAFT</ID>
+          <Name>DIM AIRCRAFT</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="55676103-5e17-4838-86e5-91c016062c02">
+            <DataSourceViewID>Air Carrier DW</DataSourceViewID>
+            <TableID>dbo_DIM_AIRCRAFT</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>DIM CARRIER</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="33e9a9c8-23b9-402b-9736-a0499293bf2e">
+          <ID>DIM CARRIER</ID>
+          <Name>DIM CARRIER</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="5b291196-df00-4973-867b-b22795f2959f">
+            <DataSourceViewID>Air Carrier DW</DataSourceViewID>
+            <TableID>dbo_DIM_CARRIER</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>
