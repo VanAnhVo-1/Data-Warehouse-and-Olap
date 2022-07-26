@@ -30,4 +30,52 @@ The dataset lists direct flights between two airports. This means including the 
     |Distance| Distance between airports|
     |AirTime| Airborne Time|
     |DistanceGroup|Distance group is every 500 Miles for a distance group.|
-    |Class| Service Class: F: Scheduled Passenger/ Cargo Service F;G: Scheduled All Cargo Service G
+    |Class| Service Class:<br />&emsp;F: Scheduled Passenger/ Cargo Service F<br />&emsp;G: Scheduled All Cargo Service G<br />&emsp;L: Non-Scheduled Civilian Passenger/ Cargo Service L<br />&emsp;P: Non-Scheduled Civilian All Cargo Service P|
+    |UniqueCarrier| Unique Carrier Code.|
+    |AirlineID| An identification number assigned by US DOT to identify a unique airline (carrier).|
+    |UniqueCarrierName|Unique Carrier Name.|
+    |CarrierRegion| Carrier's Operation Region. Carriers Report Data by Operation Region<br />&emsp;A: Atlantic<br />&emsp;D: Domestic<br />&emsp;I: International<br />&emsp;L: Latin America<br />&emsp;P: Pacific|
+    |CarrierGroup|Carrier Group Code. Used in Legacy Analysis|
+    |OriginAirportSeqID|Origin Airport, Airport Sequence ID. An identification number assigned by US DOT to identify a unique airport at a given point of time. Airport attributes, such as airport name or coordinates, may change over time.|
+    |OriginCityMarketID| Origin Airport, City Market ID. City Market ID is an identification number assigned by US DOT to identify a city market. Use this field to consolidate airports serving the same city market.|
+    |Origin|Origin Airport|
+    |OriginCityName| Origin City|
+    |OriginCountry| 	Origin Airport, Country|
+    |OriginCountryName|	Origin Airport, Country Name|
+    |OriginWac| Origin Airport, World Area Code|
+    |DestAirportSeqID| Destination Airport, Airport Sequence ID. An identification number assigned by US DOT to identify a unique airport at a given point of time.| 
+    |DestCityMarketID| Destination Airport, City Market ID. City Market ID is an identification number assigned by US DOT to identify a city market. Use this field to consolidate airports serving the same city market.|
+    |Dest| Destination Airport.|
+    |DestCityName| Destination City.|
+    |DestCountry| Destination Airport, Country.|
+    |DestCountryName| Destination Airport, Country Name.| 
+    |DestWac| Destination Airport, World Area Code.|
+    |AircraftGroup| Aircraft Group.|
+    |AircraftType| Aircraft Type.|
+    |AircraftConfig| Aircraft Configuration.|
+    |Year| Year.|
+    |Quarter|	Quarter	Analysis.|
+    |Month| Month.|
+## Processing
+### 1. Modeling data
+Create a Snowflake schema.
+![image](https://user-images.githubusercontent.com/72924182/180922025-12b8e198-a4d8-4974-9c95-e9cabda9bbae.png)
+### 2. Create data warehouse
+Using SQL Server Integration Services (SSIS) with 5 steps:
+- Step 1: Preprocessing
+- Step 2: Create ORIGIN_CITY_MARKET table.
+- Step 3: Create and load data to dimensions.
+- Step 4: Create and load data to facts.
+- Step 5: Create foreign keys.
+![image](https://user-images.githubusercontent.com/72924182/180925285-ea85b9e0-82f3-4fa0-9702-42cbdc446108.png)
+### 3. Analyze data using MDX Query
+- Create new project SASS
+- Defined Data Source and Data Source View.
+- Create and deploy Cube.
+- Create Calculation Named and Hierchies.
+- Execute Query statements
+### 4. Report
+### 5. Data Mining 
+
+    
+
