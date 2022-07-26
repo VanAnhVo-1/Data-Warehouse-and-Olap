@@ -75,7 +75,8 @@ Using SQL Server Integration Services (SSIS) with 5 steps:
 - Create Calculation Named and Hierchies.
 - Execute Query statements
 ### 4. Report
+Create report with Microsoft Reporting Services Projects and Power BI.
 ### 5. Data Mining 
-
+Use the Health Insurance Cross Sell Prediction to predict.
     
 
