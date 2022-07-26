@@ -3,20 +3,20 @@
 1. Create Analysis Services Multidimensional and Data Mining Project.
 2. Create Data Source and Data Source View.
 3. Create and Deploy Cube.
-4. Create Calculation Named
-  - Create QuaterName with example format: Q1 CY 2017 - means: quater is 1 and year is 2017.
-  - Create YearName with example format: CY 2017 - means: year is 2017.
-  - Create MonthName with example format: M1 Q1 CY 2017 - means: month is 1, quater is 1 and year is 2017.
-  - Create CLASS_SERVICE_GROUP with conditions:
-    - If class_services_id in (F,G) then class_service_group is Scheduled.
-    - IF class_services_id in (L,P) then class_service_group is Non-Scheduled.
+4. Create Calculation Named:
+    - Create QuaterName with example format: Q1 CY 2017 - means: quater is 1 and year is 2017.
+    - Create YearName with example format: CY 2017 - means: year is 2017.
+    - Create MonthName with example format: M1 Q1 CY 2017 - means: month is 1, quater is 1 and year is 2017.
+    - Create CLASS_SERVICE_GROUP with conditions:
+      - If class_services_id in (F,G) then class_service_group is Scheduled.
+      - IF class_services_id in (L,P) then class_service_group is Non-Scheduled.
 5. Create Hierarchies
-  - Create DestGeography Hierarchy with level: dest country name > dest state name > dest city name > dest airport name.
-  - Create DestCityMarket Hierarchy with level: dest city market name > dest airport name.
-  - Create Date Hiararchy with level: Year > Quater > Month. Update Name Column of Year, Quater, Month by YearName, QuaterName, MonthName.
-  - Create OriginGeography Hierarchy with level: origin country name > state name > origin city name > origin airport name.
-  - Create OriginCityMarket Hierarchy with level: origin city market name > origin airport name.
-  - Create Y_Q Hierarchy with level: Year > Quater. Update Name Column of Year, Quater by YearName, QuaterName.
+    - Create DestGeography Hierarchy with level: dest country name > dest state name > dest city name > dest airport name.
+    - Create DestCityMarket Hierarchy with level: dest city market name > dest airport name.
+    - Create Date Hiararchy with level: Year > Quater > Month. Update Name Column of Year, Quater, Month by YearName, QuaterName, MonthName.
+    - Create OriginGeography Hierarchy with level: origin country name > state name > origin city name > origin airport name.
+    - Create OriginCityMarket Hierarchy with level: origin city market name > origin airport name.
+    - Create Y_Q Hierarchy with level: Year > Quater. Update Name Column of Year, Quater by YearName, QuaterName.
 ## Query Statement
 1. Statistics of total flights that Atlas Air Inc. Has the departure point been in Vietnam by month, quarter, year?
 2. Find airports covered by carriers Delta Airline Inc. come the most in 2018?
